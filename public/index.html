@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DCPRIME · Attendance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside><a class="brand" href="#dashboard">DC<span>PRIME</span></a><nav>
+    <button class="nav active" data-view="dashboard">Dashboard</button><button class="nav" data-view="members">Members</button><button class="nav" data-view="attendance">Attendance</button><button class="nav" data-view="birthdays">Birthdays</button>
+  </nav><small>Church attendance system</small></aside>
+  <main><header><div><p class="eyebrow">WELCOME BACK</p><h1 id="title">Dashboard</h1></div><div class="header-actions"><button class="secondary" id="import-members">Import</button><button class="primary" id="add-member">+ Add member</button></div></header>
+    <section id="app"></section>
+  </main>
+  <dialog id="member-dialog"><form method="dialog" id="member-form"><div class="modal-head"><h2>Add member</h2><button class="icon" value="cancel">×</button></div><div class="form-grid">
+    <label>Full name *<input required name="fullName" placeholder="e.g. Adaeze Okafor"></label><label>Phone<input name="phone"></label><label>Email<input type="email" name="email"></label><label>Gender<select name="gender"><option value="">Choose</option><option>Female</option><option>Male</option><option>Other</option></select></label><label>Birthday<input name="birthday" placeholder="MM-DD, e.g. 09-10"></label><label>WhatsApp<input name="whatsapp"></label><label>Education<select name="educationLevel"><option value="">Choose</option><option>Primary</option><option>Secondary</option><option>Tertiary</option><option>Other</option></select></label><label>Address<input name="address"></label><label class="wide">Notes<textarea name="notes" rows="3"></textarea></label>
+  </div><div class="actions"><button value="cancel" class="secondary">Cancel</button><button class="primary" id="save-member">Save member</button></div></form></dialog>
+  <dialog id="import-dialog"><form method="dialog" id="import-form"><div class="modal-head"><h2>Import members</h2><button class="icon" value="cancel">×</button></div><div class="import-content"><p class="muted">Import from Excel, CSV, text-based PDF, or a public Google Sheet. Every row needs a <strong>Name</strong> column.</p><div class="import-tabs"><button class="import-tab active" type="button" data-import="file">File</button><button class="import-tab" type="button" data-import="sheet">Google Sheet</button></div><section id="file-import"><label>Excel, CSV, or PDF file<input required id="import-file" type="file" accept=".xlsx,.xls,.csv,.pdf"></label><p class="hint">PDFs must have selectable text and a member table with headings.</p></section><section id="sheet-import" hidden><label>Public Google Sheets URL<input id="sheet-url" type="url" placeholder="https://docs.google.com/spreadsheets/d/..."></label><p class="hint">Share it as “Anyone with the link can view.”</p></section><div id="import-result"></div></div><div class="actions"><button value="cancel" class="secondary">Cancel</button><button class="primary" id="start-import">Import members</button></div></form></dialog>
+  <div id="toast" role="status"></div><script src="/app.js"></script>
+</body></html>
