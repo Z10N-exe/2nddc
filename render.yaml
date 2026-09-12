@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: dcprime-attendance
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
